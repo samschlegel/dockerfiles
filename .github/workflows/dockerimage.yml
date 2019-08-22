@@ -1,0 +1,14 @@
+name: Docker Image CI
+
+on: [push]
+
+jobs:
+
+  build:
+ 
+    runs-on: ubuntu-latest
+ 
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build the Develop image
+      run: docker build --rm --file develop/Dockerfile --tag samschlegel/develop:$(date +%s) develop
